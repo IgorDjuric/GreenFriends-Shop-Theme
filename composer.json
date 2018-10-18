@@ -1,0 +1,20 @@
+{
+	"name"        : "IgorDjuric/GreenFriends-Shop-Theme",
+	"description" : "Green Friends Shop Theme",
+	"keywords"    : ["wordpress"],
+	"license"     : "GPL-2.0+",
+	"type"        : "wordpress-theme",
+	"authors"     : [
+		{
+			"name"     : "IgorDjuric",
+			"email"    : ""
+		},
+	],
+	"require"     : {
+		"composer/installers" : "^1.0",
+		"php"                 : ">=5.3.0"
+	},
+	"support"     : {
+		"issues": "https://github.com/IgorDjuric/GreenFriends-Shop-Theme/issues"
+	}
+}
