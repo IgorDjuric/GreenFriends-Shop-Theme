@@ -8,7 +8,7 @@
 		{
 			"name"     : "IgorDjuric",
 			"email"    : ""
-		},
+		}
 	],
 	"require"     : {
 		"composer/installers" : "^1.0",
