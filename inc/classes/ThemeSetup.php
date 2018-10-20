@@ -21,7 +21,7 @@ class ThemeSetup
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminStyleAndScripits'));
 
 
-        add_action('after_setup_theme', array($this, 'wcSupport'));
+        add_action('after_theme_setup', array($this, 'wcSupport'));
     }
 
     public function gfThemeSetup()
@@ -100,16 +100,21 @@ class ThemeSetup
      */
     public function enqueueFrontendStyleAndScripits()
     {
+        // @TODO for development only
+        $version = time();
         wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.1.1/css/all.css');
-
-        wp_enqueue_script('jquery', '', [], false, true);
-        wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js', array(), '', 'true');
-        wp_enqueue_script('bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '', 'true');
         wp_enqueue_style('bootstrap 4.1', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css');
 
-        wp_enqueue_style('gf-style-reset', get_stylesheet_directory_uri() . '/assets/css/reset.css');
-        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/style.css');
-        wp_enqueue_script('gf-front-js', get_stylesheet_directory_uri() . '/assets/js/front.js', '', '', true);
+//        wp_enqueue_script('jquery', '', [], false, true);
+//        wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js', array(), '', 'true');
+//        wp_enqueue_script('bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '', 'true');
+
+        //greenfirends styles & scripts
+        wp_enqueue_style('gf-style-reset', get_stylesheet_directory_uri() . '/assets/css/hc-offcanvas-nav.css');
+        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/style.css', [], $version);
+
+        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/style.css', [], $version);
+        wp_enqueue_script('gf-front-js', get_stylesheet_directory_uri() . '/assets/js/front.js', ['jquery'], '', false);
     }
 
     /**
