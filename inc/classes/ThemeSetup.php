@@ -12,16 +12,20 @@ class ThemeSetup
 
     private function init()
     {
+        load_theme_textdomain('greenfriends-theme', '', get_template_directory_uri() . '/greenfriends-theme/languages');
+
         add_action('after_theme_setup', array($this, 'gfThemeSetup'));
 
         //frontend scripts & styles
-        add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendStyleAndScripits'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendStyleAndScripts'));
 
         //admin scripts & styles
-        add_action('admin_enqueue_scripts', array($this, 'enqueueAdminStyleAndScripits'));
-
+        add_action('admin_enqueue_scripts', array($this, 'enqueueAdminStyleAndScripts'));
 
         add_action('after_theme_setup', array($this, 'wcSupport'));
+
+
+        add_action('admin_menu', array($this, 'gfThemeSettingsCreateMenu'));
     }
 
     public function gfThemeSetup()
@@ -98,7 +102,7 @@ class ThemeSetup
     /**
      * frontend scripts & styles
      */
-    public function enqueueFrontendStyleAndScripits()
+    public function enqueueFrontendStyleAndScripts()
     {
         // @TODO for development only
         $version = time();
@@ -110,8 +114,7 @@ class ThemeSetup
 //        wp_enqueue_script('bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '', 'true');
 
         //greenfirends styles & scripts
-        wp_enqueue_style('gf-style-reset', get_stylesheet_directory_uri() . '/assets/css/hc-offcanvas-nav.css');
-        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/style.css', [], $version);
+        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/admin.css', [], $version);
 
         wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/style.css', [], $version);
         wp_enqueue_script('gf-front-js', get_stylesheet_directory_uri() . '/assets/js/front.js', ['jquery'], '', false);
@@ -120,10 +123,10 @@ class ThemeSetup
     /**
      * admin scripts & styles
      */
-    public function enqueueAdminStyleAndScripits()
+    public function enqueueAdminStyleAndScripts()
     {
-        wp_enqueue_script('gf-admin-js', get_stylesheet_directory_uri() . '/assets/js/admin.js');
-        wp_enqueue_style('gf-admin-style', get_stylesheet_directory_uri() . '/admin.css');
+        wp_enqueue_script('gf-admin-js', get_stylesheet_directory_uri() . '/assets/js/admin.js', ['jquery']);
+        wp_enqueue_style('gf-admin-style', get_stylesheet_directory_uri() . '/assets/css/admin.css');
     }
 
 
@@ -136,5 +139,18 @@ class ThemeSetup
         add_theme_support('wc-product-gallery-zoom');
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
+    }
+
+    public function gfThemeSettingsCreateMenu()
+    {
+        //create new top-level menu
+        add_menu_page('GreenFriends Theme Settings', 'GreenFriends Theme Settings', 'administrator', 'gf_theme_settings', array($this, 'gfThemeSettingsOptionsPage'), null, 99);
+        add_submenu_page('gf_theme_settings', 'GreenFriends Theme Settings', 'General', 'administrator', 'gf_theme_settings', array($this, 'gfThemeSettingsOptionsPage'));
+    }
+
+    public function gfThemeSettingsOptionsPage()
+    {
+        require(__DIR__ . "/../html/admin/optionPageGeneral.phtml");
+
     }
 }

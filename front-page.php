@@ -11,13 +11,14 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://via.placeholder.com/2000x500" alt="First slide">
+                    <?php $theme_folder = get_template_directory_uri() ?>
+                    <img class="d-block w-100" src="<?= $theme_folder ?>/assets/img/slider-1-1920x580.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://via.placeholder.com/2000x500" alt="Second slide">
+                    <img class="d-block w-100" src="<?= $theme_folder ?>/assets/img/slider-2-1920x580.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://via.placeholder.com/2000x500" alt="Third slide">
+                    <img class="d-block w-100" src="<?= $theme_folder ?>/assets/img/slider-3-1920x580.jpg" alt="First slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#gf-image-slider" role="button" data-slide="prev">
