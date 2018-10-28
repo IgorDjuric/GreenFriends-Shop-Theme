@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    
+
     //mega menu
     $(".gf-header-categories-wrapper, .mega-menu-toggle").mouseenter(function () {
         $(".mega-menu-toggle").stop().slideDown("fast");

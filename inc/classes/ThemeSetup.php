@@ -13,11 +13,12 @@ class ThemeSetup
 
     private function init()
     {
+
         load_theme_textdomain('greenfriends-theme', '', get_template_directory_uri() . '/greenfriends-theme/languages');
-        add_action('after_setup_theme', array($this, 'wcSupport'));
+
         add_action('after_theme_setup', array($this, 'gfThemeSetup'));
 
-
+        add_action('after_setup_theme', array($this, 'wcSupport'));
 
         //frontend scripts & styles
         add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendStyleAndScripts'));
@@ -138,9 +139,9 @@ class ThemeSetup
     public function wcSupport()
     {
         add_theme_support('woocommerce');
-//        add_theme_support('wc-product-gallery-zoom');
-//        add_theme_support('wc-product-gallery-lightbox');
-//        add_theme_support('wc-product-gallery-slider');
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
     }
 
 
