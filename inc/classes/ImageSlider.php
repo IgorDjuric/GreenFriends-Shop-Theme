@@ -42,8 +42,8 @@ class ImageSlider
             <div>
                 <input type="hidden" name="gf-image-slider-values[' . $name . '][id]" id="gf-image-slider-values[' . $name . '][id]" value="' . $value . '" />
                  <button type="button" class="upload-image-button button">Izaberite sliku</button>
-                <button type="submit" class="remove-image-button button">Obrišite sliku</button>
-                <input type="text" name="gf-image-slider-values[' . $name . '][link]" id="gf-image-slider-values[' . $name . '][link]" value="' . $link . '" />
+                <button type="submit" class="remove-image-slider-button button">Obrišite sliku</button>
+                <input type="text" name="gf-image-slider-values[' . $name . '][link]" id="gf-image-slider-values[' . $name . '][link]" value="' . $link . '" placeholder="Link to ..."/>
             </div>
         </div>
     ';

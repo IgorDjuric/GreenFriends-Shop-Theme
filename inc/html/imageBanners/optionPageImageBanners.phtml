@@ -1,0 +1,38 @@
+<div class="wrap">
+    <h2><?= __('Image banners settings') ?></h2>
+    <br/>
+
+    <?php settings_errors(); ?>
+
+    <form method="post" action="options.php" id="theme-options-form-image-banners">
+        <?php settings_fields('gf-image-banners-settings-group'); ?>
+        <?php do_settings_sections('gf-image-banners-settings-group'); ?>
+
+        <div class="admin-module">
+            <h3 class="m-0">Wider image banner</h3>
+            <?php $this->imageBanners->imageUploadField('image_banners_1') ?>
+            <div class="d-flex">
+                <h3 class="m-0">1/2 image banner</h3>
+                <?php $this->imageBanners->imageUploadField('image_banners_2') ?>
+
+                <h3 class="m-0">2/2 image banner</h3>
+                <?php $this->imageBanners->imageUploadField('image_banners_3') ?>
+            </div>
+
+            <div class="image-banners-add-more">
+                <h3 class="m-0">Wider image banner</h3>
+                <?php $this->imageBanners->imageUploadField('image_banners_4') ?>
+
+                <h3 class="m-0">1/2 image banner</h3>
+                <?php $this->imageBanners->imageUploadField('image_banners_5') ?>
+
+                <h3 class="m-0">2/2 image banner</h3>
+                <?php $this->imageBanners->imageUploadField('image_banners_6') ?>
+            </div>
+
+            <input type="button" class="image-banners-add-more-btn button-secondary" value="Add more banners">
+        </div>
+</div>
+<?php submit_button('', 'primary', 'image_banners_submit'); ?>
+</form>
+</div><!--WRAP-->

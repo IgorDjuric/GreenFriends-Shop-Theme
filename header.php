@@ -14,10 +14,15 @@
 <body>
 <header>
     <div class="gf-header-wrapper">
-        <div class="gf-header-part-1 py-3">
+        <div class="gf-header-part-1">
             <div class="gf-container">
                 <nav class="navbar justify-content-between">
-                    <a class="navbar-brand"><img src="" alt="" width="200" height="60">GreenFriends Shop</a>
+                    <?php
+                    $options = get_option('gf-general-logo-value');
+                    $logo_attributes = wp_get_attachment_image_src($options['logo_image']['id'], 'full');
+                    $logo_src = $logo_attributes[0];
+                    ?>
+                    <a class="navbar-brand" href="/"><img src="<?=$logo_src?>" alt="" width="200" height="60"></a>
                     <div class="gf-header-part-1__text">
                         <span class="mr-3 pr-3 header-text">We're Dedicated to Our Customers 24/7</span>
                         <i class="fas fa-phone"> +0900 666 666</i>
@@ -44,7 +49,7 @@
                 </nav>
             </div>
         </div>
-        <div class="gf-header-part-2 mt-3">
+        <div class="gf-header-part-2 sticky">
             <div class="gf-container">
                 <div class="row gf-header-navigation-wrapper align-items-center">
                     <div class="col-lg-2 col-md-12 gf-header-categories-wrapper">
@@ -122,8 +127,8 @@
                     <div class="row gf-category-mega-menu-desktop  py-4">
                         <div class="col-3 gf-category-mega-menu-desktop__main_cats">
                             <ul>
-                                <li class="cool-link"><a href="">Category 1<i class="fas fa-caret-right"></i></a></li>
-                                <li class="cool-link"><a href="">Category 2 <i class="fas fa-caret-right"></i></a></li>
+                                <li class="cool-link"><a href=""><i class="fas fa-tv"></i> Category 1<i class="fas fa-caret-right"></i></a></li>
+                                <li class="cool-link"><a href=""><i class="fas fa-camera"></i> Category 2 <i class="fas fa-caret-right"></i></a></li>
                                 <li class="cool-link"><a href="">Category 3 <i class="fas fa-caret-right"></i></a></li>
                                 <li class="cool-link"><a href="">Category 4 <i class="fas fa-caret-right"></i></a></li>
                                 <li class="cool-link"><a href="">Category 5 <i class="fas fa-caret-right"></i></a></li>

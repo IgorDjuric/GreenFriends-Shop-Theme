@@ -7,14 +7,17 @@ class ThemeSetup
      */
     public function __construct()
     {
+
         $this->init();
     }
 
     private function init()
     {
         load_theme_textdomain('greenfriends-theme', '', get_template_directory_uri() . '/greenfriends-theme/languages');
-
+        add_action('after_setup_theme', array($this, 'wcSupport'));
         add_action('after_theme_setup', array($this, 'gfThemeSetup'));
+
+
 
         //frontend scripts & styles
         add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendStyleAndScripts'));
@@ -22,10 +25,6 @@ class ThemeSetup
         //admin scripts & styles
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminStyleAndScripts'));
 
-        add_action('after_theme_setup', array($this, 'wcSupport'));
-
-
-        add_action('admin_menu', array($this, 'gfThemeSettingsCreateMenu'));
     }
 
     public function gfThemeSetup()
@@ -114,9 +113,9 @@ class ThemeSetup
 //        wp_enqueue_script('bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '', 'true');
 
         //greenfirends styles & scripts
-        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/admin.css', [], $version);
+        wp_enqueue_style('gf-style-admin', get_stylesheet_directory_uri() . '/assets/css/admin.css', [], $version);
 
-        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/assets/css/style.css', [], $version);
+        wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/style.css', [], $version);
         wp_enqueue_script('gf-front-js', get_stylesheet_directory_uri() . '/assets/js/front.js', ['jquery'], '', false);
     }
 
@@ -125,6 +124,9 @@ class ThemeSetup
      */
     public function enqueueAdminStyleAndScripts()
     {
+        //media uploader
+        wp_enqueue_media();
+
         wp_enqueue_script('gf-admin-js', get_stylesheet_directory_uri() . '/assets/js/admin.js', ['jquery']);
         wp_enqueue_style('gf-admin-style', get_stylesheet_directory_uri() . '/assets/css/admin.css');
     }
@@ -136,21 +138,10 @@ class ThemeSetup
     public function wcSupport()
     {
         add_theme_support('woocommerce');
-        add_theme_support('wc-product-gallery-zoom');
-        add_theme_support('wc-product-gallery-lightbox');
-        add_theme_support('wc-product-gallery-slider');
+//        add_theme_support('wc-product-gallery-zoom');
+//        add_theme_support('wc-product-gallery-lightbox');
+//        add_theme_support('wc-product-gallery-slider');
     }
 
-    public function gfThemeSettingsCreateMenu()
-    {
-        //create new top-level menu
-        add_menu_page('GreenFriends Theme Settings', 'GreenFriends Theme Settings', 'administrator', 'gf_theme_settings', array($this, 'gfThemeSettingsOptionsPage'), null, 99);
-        add_submenu_page('gf_theme_settings', 'GreenFriends Theme Settings', 'General', 'administrator', 'gf_theme_settings', array($this, 'gfThemeSettingsOptionsPage'));
-    }
 
-    public function gfThemeSettingsOptionsPage()
-    {
-        require(__DIR__ . "/../html/admin/optionPageGeneral.phtml");
-
-    }
 }

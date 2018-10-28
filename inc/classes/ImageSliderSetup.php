@@ -39,7 +39,7 @@ class ImageSliderSetup
 
     public function optionPage()
     {
-        require(__DIR__ . "/../html/admin/optionPageImageSlider.phtml");
+        require(__DIR__ . "/../html/imageSlider/optionPageImageSlider.phtml");
     }
 
     public function registerWidget()

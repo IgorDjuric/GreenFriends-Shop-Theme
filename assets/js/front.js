@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-
+    
     //mega menu
     $(".gf-header-categories-wrapper, .mega-menu-toggle").mouseenter(function () {
         $(".mega-menu-toggle").stop().slideDown("fast");
@@ -41,10 +41,10 @@ jQuery(document).ready(function ($) {
     $('.test').click(function () {
         $('.mega-menu-mobile-toggle__first_level').animate({width:'toggle'},300);
     });
-
-
-
+    
 
 });
+
+//
 
 

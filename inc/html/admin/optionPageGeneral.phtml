@@ -1,4 +1,18 @@
 <div class="wrap">
-<h1>GreenFriends Shop Theme Settings</h1>
-    <h2>General settings</h2>
+    <h2><?= __('General theme settings') ?></h2>
+    <br/>
+
+    <?php settings_errors(); ?>
+
+    <form method="post" action="options.php" id="theme-options-form-image-banners">
+        <?php settings_fields('gf-general-settings-group'); ?>
+        <?php do_settings_sections('gf-general-settings-group'); ?>
+
+        <div class="admin-module">
+            <h3 class="mb-2">Logo image</h3>
+            <?php $this->generalSettings->logoImageUploadField('logo_image') ?>
+        </div>
 </div>
+<?php submit_button('', 'primary', 'gf_general_settings_submit'); ?>
+</form>
+</div><!--WRAP-->

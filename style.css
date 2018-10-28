@@ -8,27 +8,53 @@ Template:
 Text Domain: greenfriends-shop
 Domain Path: /languages
 */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 * {
     margin: 0;
     padding: 0;
+    /*font-family: 'Roboto', sans-serif;*/
 }
-
 .gf-container {
-    width: 80%;
+    width: 75%;
     margin: auto;
     padding: 0px 10px;
 }
 
+
+
+@media only screen and (max-width: 1600px) {
+    .gf-container {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .gf-container {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .gf-container {
+        width: 100%;
+    }
+}
+.widget{
+    list-style: none;
+}
 .container {
     padding: 0px;
 }
-
+.width-50{
+    width: 50% !important;
+}
 .bg-green-color {
     background-color: #0F994F;
 }
 
 .tx-green-color {
     color: #0F994F;
+}
+.color-white{
+    color: #fff;
 }
 
 /***** HEADER START *****/
@@ -111,9 +137,15 @@ Domain Path: /languages
 }
 
 .gf-header-part-2 {
-    border-bottom: 2px solid #0F994F;
+    border-bottom: 1px solid #ddd;
     color: #999;
     position: relative;
+}
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%;
+    z-index: 99999;
 }
 
 .gf-header-categories-wrapper {
@@ -511,17 +543,6 @@ Domain Path: /languages
 /***** HEADER END *****/
 
 /***** HEADER RESPONSIVE START*****/
-@media only screen and (max-width: 1258px) {
-    .gf-container {
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .gf-container {
-        width: 100%;
-    }
-}
 
 @media only screen and (max-width: 992px) {
     body{
@@ -579,12 +600,78 @@ Domain Path: /languages
 }
 
 /***** FOOTER START*****/
+.gf-footer-newsletter-wraper{
+    background-color: #ebebeb;
+}
+.gf-footer-newsletter__title{
+    margin-bottom: 0px;
+    color: #999;
+    font-size: 22px;
+}
+.gf-footer-newsletter-wraper .fa-paper-plane{
+    font-size: 30px;
+    color: #999;
+}
+.gf-footer-newsletter-wraper p{
+    /*margin: 0px;*/
+    margin: 6px auto 0px auto;
+    color: #999;
+}
+.gf-footer-newsletter__form{
+    background-color: #fff;
+    border-radius: 30px;
+}
+.newsletter-form__email{
+    width: 70%;
+    border: none;
+    border-radius: 100%;
+}
+.newsletter-form__submit{
+    width: 30%;
+    background-color: #1A2421;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+}
+.newsletter-form__submit:hover{
+    transition: all 0.3s;
+    background-color: #444;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1263px) {
+    .gf-footer-newsletter-wraper p{
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .gf-footer-newsletter-form-wrapper{
+        padding-top: 1rem;
+    }
+}
+
+
+
 .gf-footer-wrapper {
     background-color: #1A2421;
 }
 
-.gf-footer-wrapper h5 {
+.gf-footer-wrapper h5, .gf-footer-links-wrapper h3 {
     color: #fff;
+}
+.footer-brand{
+    min-height: 75px;
+    line-height: 75px;
+}
+.gf-footer-brand__headset p{
+    color: #aaa;
+    margin-bottom: 0px;
+}
+.gf-footer-brand__headset span{
+    color: #fff;
+    font-size: 20px;
+}
+.gf-footer-brand__headset i{
+    font-size: 50px;
 }
 
 .gf-footer-links-wrapper a {
@@ -609,8 +696,8 @@ Domain Path: /languages
 }
 
 .gf-footer-icons {
-    width: 75px;
-    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
     line-height: 75px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -622,31 +709,7 @@ Domain Path: /languages
     color: #fff;
 }
 
-.gf-footer-newsletter-form input {
-    width: 100%;
-}
 
-.newsletter-form__email {
-    border: none
-}
-
-.newsletter-form__email::placeholder {
-    color: #bbb;
-}
-
-.newsletter-form__submit {
-    border: 1px solid #0F994F;
-    background-color: #0F994F;
-    color: #fff;
-    font-weight: bold;
-    transition: all 0.2s;
-}
-
-.newsletter-form__submit:hover {
-    background-color: #fff;
-    color: #0F994F;
-    transition: all 0.2s;
-}
 
 /*FOOTER CREDITS*/
 .gf-footer-credits {
@@ -657,8 +720,9 @@ Domain Path: /languages
 
 .gf-footer-social-icons {
     display: flex;
-    width:100%;
+    width:50%;
     text-align: center;
+    border-top: 1px solid #0F994F;
 }
 
 .gf-footer-social-icons a {
@@ -666,9 +730,9 @@ Domain Path: /languages
 }
 
 .gf-social-share-button-single-footer {
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+    min-width: 48px;
+    min-height: 48px;
+    line-height: 48px;
     text-align: center;
     background: none repeat scroll 0 0 #ffffff;
     -webkit-border-radius: 50%;
@@ -682,6 +746,11 @@ Domain Path: /languages
     -ms-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     border: 1px solid #fff;
+}
+.gf-social-share-button-single-footer i{
+    font-size: 24px;
+    /*line-height: 48px;*/
+    vertical-align: middle;
 }
 
 .gf-social-share-button-single-footer:hover {
@@ -698,5 +767,107 @@ Domain Path: /languages
     color: #fff;
     background: #1A2421;
 }
+@media only screen and (max-width: 767px) {
+    .gf-footer-credits p{
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .gf-footer-credit-cards{
+        text-align: center !important;
+    }
+
+}
 
 /***** FOOTER END*****/
+
+
+
+
+
+/*IMAGE SLIDER*/
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 88%;
+    bottom: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 5%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+    height: 10%;
+    justify-content: center;
+    background-color: #ccc;
+    right: 5%;
+}
+.carousel-control-prev{
+    left: 84%;
+}
+.carousel-indicators li{
+    background-color: #ccc;
+}
+.carousel-indicators .active{
+    background-color: #0F994F;
+}
+
+/*IMAGE BANNERS*/
+.gf-image-banners img{
+    width: 100%;
+}
+
+
+
+.gf-print-bill-wrapper{
+    width: 80%;
+    padding: 5px;
+    margin: auto;
+    border: 1px solid;
+}
+.gf-print-bill-number{
+    width: 100%;
+}
+.gf-print-bill-header{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+}
+.gf-print-bill-info-wrapper{
+    width: 75%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+}
+.gf-print-bill__customer-info, .gf-print-bill__shipping-info{
+    width: 50%;
+}
+.gf-print-bill__shipping-info{
+    text-align: right;
+}
+.gf-print-bill-info-wrapper p{
+    margin: 0;
+}
+.gf-print-bill__date-number-method{
+    margin-top: 30px;
+}
+.gf-print-bill-table{
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+}
+.gf-print-bill-table th{
+    border-bottom: 1px solid;
+}
+.gf-print-bill-table tfoot{
+    border-top: 1px solid;
+    font-weight: bolder;
+}
+.gf-print-bill-table__total{
+    margin-right: auto;
+}
+
+

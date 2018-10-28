@@ -1,0 +1,31 @@
+#wpfooter{
+    position: relative !important;
+}
+
+/*IMAGE SLIDER*/
+.upload-image-wrapper {
+    width: 50%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+}
+.upload-image-wrapper img{
+    width: 100%;
+}
+
+/*IMAGE BANNERS*/
+h3{
+    margin: 0px;
+}
+.upload-image-banners-wrapper{
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+}
+.upload-image-banners-wrapper img{
+    width: 100%;
+}
+.image-banners-add-more{
+    display: none;
+}
