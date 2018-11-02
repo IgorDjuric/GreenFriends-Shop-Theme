@@ -494,14 +494,29 @@ Domain Path: /languages
 }
 .gf-category-mega-menu-desktop__main_cats{
     width: 25%;
+    position: relative;
+}
+.gf-category-mega-menu-desktop__main_cats li:hover .gf-category-mega-menu-desktop__second_cats{
+    display: block;
 }
 .gf-category-mega-menu-desktop__second_cats{
-    width: 25%;
     display: none;
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    top: 0;
+    height: 100%;
+}
+.gf-category-mega-menu-desktop__second_cats li:hover .gf-category-mega-menu-desktop__third_cats{
+    display: block;
 }
 .gf-category-mega-menu-desktop__third_cats{
-    width: 25%;
     display: none;
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    top: 0;
+    height: 100%;
 }
 
 .gf-category-mega-menu-desktop__main_cats, .gf-category-mega-menu-desktop__second_cats, .gf-category-mega-menu-desktop__third_cats {
@@ -544,13 +559,14 @@ Domain Path: /languages
     width: 0;
     height: 3px;
     background: #0F994F;
-    transition: width .3s;
+    transition: width 0.3s;
 }
 
 .cool-link:hover::after {
     width: 100%;
-/ / transition: width .3 s;
+    transition: width 0.3s;
 }
+
 .cool-link-product::before {
     content: '';
     display: block;
