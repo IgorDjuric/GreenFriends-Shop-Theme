@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="gf-footer-credits py-2">
-        <div class="gf-container row">
+        <div class="gf-container row mx-auto">
             <p class="mb-0 align-self-center col-lg col-md-6 col-xs-12 text-left">Copyright © GreenFriends 2018. All right reserved.</p>
             <div class="gf-footer-credit-cards align-self-center col-lg col-md-6 col-xs-12 text-right">
                 <?php $theme_folder = get_template_directory_uri() ?>

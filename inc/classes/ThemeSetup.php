@@ -18,7 +18,7 @@ class ThemeSetup
 
         add_action('after_theme_setup', array($this, 'gfThemeSetup'));
 
-        add_action('after_setup_theme', array($this, 'wcSupport'));
+        add_action('after_theme_setup', array($this, 'wcSupport'));
 
         //frontend scripts & styles
         add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendStyleAndScripts'));

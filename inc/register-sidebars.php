@@ -10,9 +10,11 @@ function gf_register_sidebars()
             'description' => 'Image slider for homepage (desktop)',
         ),
         array(
-            'name' => __('Image Banners Desktop', '' . $theme->get('TextDomain') . ''),
-            'id' => 'gf-image-banners-desktop',
-            'description' => 'Image banners for homepage (desktop)',
+            'name' => __('Homepage Desktop', '' . $theme->get('TextDomain') . ''),
+            'id' => 'gf-homepage-desktop',
+            'description' => 'Homepage for (desktop)',
+            'before_widget' => '',
+            'after_widget' => '',
         ),
     );
 

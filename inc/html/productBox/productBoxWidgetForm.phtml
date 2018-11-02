@@ -1,0 +1,96 @@
+<div class="gf-admin-product-box-wrapper">
+
+    <!-- PRODUCT BOX TITLE -->
+    <label for="<?php echo esc_attr($this->get_field_id('product_box_title')); ?>">
+        <?php esc_attr_e('Product box title', 'gf_widgets_domain'); ?>
+    </label>
+    <input class="gf-admin-product-box-title widefat"
+           id="<?php echo esc_attr($this->get_field_id('product_box_title')); ?>"
+           type="text"
+           name="<?php echo esc_attr($this->get_field_name('product_box_title')); ?>"
+           value="<?php echo esc_attr($product_box_title); ?>">
+
+
+    <!-- PRODUCT BOX LINK TO -->
+    <label for="<?php echo esc_attr($this->get_field_id('product_box_title_link')); ?>">
+        <?php esc_attr_e('Link to:', 'gf_widgets_domain'); ?>
+    </label>
+    <input class="gf-admin-product-box-title widefat"
+           id="<?php echo esc_attr($this->get_field_id('product_box_title_link')); ?>"
+           type="text"
+           name="<?php echo esc_attr($this->get_field_name('product_box_title_link')); ?>"
+           value="<?php echo esc_attr($product_box_title); ?>">
+
+
+    <!-- PRODUCT BOX CATEGORY SELECT -->
+    <label for="<?php echo esc_attr($this->get_field_id('category_select')); ?>">
+        <?php esc_attr_e('Select category:', 'gf_widgets_domain'); ?>
+    </label>
+    <select class="gf-category-select widefat"
+            id="<?php echo esc_attr($this->get_field_id('category_select')); ?>"
+            name="<?php echo esc_attr($this->get_field_name('category_select')); ?>">
+
+        <!-- Best selling products option -->
+        <option value="best_selling_products" class="text-bold"
+            <?php if (isset($instance['category_select'])) {
+                if ('best_selling_products' == $instance['category_select']) {
+                    echo 'selected';
+                }
+            } ?>>- Best selling products -
+        </option>
+
+        <!-- Latest products option -->
+        <option value="latest_products" class="text-bold"
+            <?php if (isset($instance['category_select'])) {
+                if ('latest_products' == $instance['category_select']) {
+                    echo 'selected';
+                }
+            } ?>>- Latest products -
+        </option>
+
+        <!-- Products on sale -->
+        <option value="sale_products" class="text-bold"
+            <?php if (isset($instance['category_select'])) {
+                if ('sale_products' == $instance['category_select']) {
+                    echo 'selected';
+                }
+            } ?>>- Products on sale -
+        </option>
+
+        <!-- categories options -->
+        <?php foreach ($categories as $category) : ?>
+            <?php $category_level = check_category_level($category->term_id); ?>
+            <option
+                <?php if (isset($instance['category_select'])) {
+                    if ($category->slug == $instance['category_select']) {
+                        echo 'selected';
+                    }
+                } ?>
+                    value="<?= $category->slug ?>">
+                <?php
+                if ($category_level == 1) {
+                    echo $category->name;
+                }
+                if ($category_level == 2) {
+                    echo '&nbsp;- ' . $category->name;
+                }
+                if ($category_level == 3) {
+                    echo '&nbsp;&nbsp;-- ' . $category->name;
+                }
+
+                ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+
+    <!-- PRODUCT BOX NUMBER OF COLUMNS -->
+    <label for="<?php echo esc_attr($this->get_field_id('number_of_columns')); ?>">
+        <?php esc_attr_e('Number of columns:', 'gf_widgets_domain'); ?>
+    </label>
+    <input class="gf-number-of-columns widefat"
+           id="<?php echo esc_attr($this->get_field_id('number_of_columns')); ?>"
+           type="number"
+           name="<?php echo esc_attr($this->get_field_name('number_of_columns')); ?>"
+           value="<?php echo esc_attr($columns); ?>">
+</div>

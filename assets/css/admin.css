@@ -29,3 +29,9 @@ h3{
 .image-banners-add-more{
     display: none;
 }
+
+
+.text-bold{
+    font-weight: bold;
+    text-align: center;
+}
