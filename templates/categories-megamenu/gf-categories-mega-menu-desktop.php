@@ -9,10 +9,14 @@ $first_level_categories = get_terms($args);
 foreach ($first_level_categories as $first_level_category) {
     $first_level_category_id = $first_level_category->term_id;
     $first_level_category_link = get_category_link($first_level_category_id);
-    echo '<li class="cool-link"><a href="' . $first_level_category_link . '">' . $first_level_category->name . '<i class="fas fa-caret-right"></i></a>';
-    ?>
-<!--second level categories-->
-    <ul class="gf-category-mega-menu-desktop__second_cats"><?php
+    $arrow = '<i class="fas fa-caret-right"></i>';
+    if(empty(get_term_children( $first_level_category_id, 'product_cat'))){
+        $arrow = '';
+    }
+    echo '<li class="cool-link"><a href="' . $first_level_category_link . '">' . $first_level_category->name . $arrow .'</a>';
+
+
+    echo '<ul class="gf-category-mega-menu-desktop__second_cats">';
     $args = array(
         'taxonomy' => 'product_cat',
         'parent' => $first_level_category_id
@@ -21,7 +25,11 @@ foreach ($first_level_categories as $first_level_category) {
     foreach ($second_level_categories as $second_level_category) {
         $second_level_category_id = $second_level_category->term_id;
         $second_level_category_link = get_category_link($second_level_category_id);
-        echo '<li class="cool-link"><a href="' . $second_level_category_link . '">' . $second_level_category->name . '<i class="fas fa-caret-right"></i></a>';
+        $arrow = '<i class="fas fa-caret-right"></i>';
+        if(empty(get_term_children( $second_level_category_id, 'product_cat'))){
+            $arrow = '';
+        }
+        echo '<li class="cool-link"><a href="' . $second_level_category_link . '">' . $second_level_category->name . $arrow .'</a>';
         ?>
         <!--third level categories-->
         <ul class="gf-category-mega-menu-desktop__third_cats"><?php

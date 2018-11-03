@@ -14,7 +14,6 @@ if ($number_of_columns === 0) {
 //    $class .= 'max-width-25';
 //}
 
-$class = 'max-width-25';
 ?>
 <div class="row mt-5 gf-product-box-wrapper">
     <div class="w-100 gf-product-box__header text-center mb-3">
@@ -96,7 +95,7 @@ $class = 'max-width-25';
             global $product;
             $i++;
             ?>
-            <div class="col-lg col-md col-sm-6 col-xs-6 gf-product-box__item py-2 cool-link-product <?php if($i < $number_of_columns){echo $class;}?>">
+            <div class="col-lg col-md col-sm-6 col-xs-6 gf-product-box__item py-2 cool-link-product">
                 <a href="<?php echo get_permalink($loop->post->ID) ?>"
                    title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                     <?php if (has_post_thumbnail($loop->post->ID)) echo get_the_post_thumbnail($loop->post->ID, 'full_size'); else echo '<img src="' . wc_placeholder_img_src() . '" alt="Placeholder" width="300px" height="300px" />'; ?>

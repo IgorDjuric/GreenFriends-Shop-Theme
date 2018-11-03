@@ -101,56 +101,18 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!--*** CATEGORY MEGA-MENU MOBILE *** -->
-    <div class="gf-category-mega-menu-mobile-wrapper mega-menu-mobile-toggle">
-        <div class="gf-category-mega-menu-mobile__header p-2">
-            <div class="mega-menu-mobile__back_first">
-                <i class="fas fa-arrow-circle-left"></i>
-            </div>
-            <h5>All Cateogires</h5>
-        </div>
+        <!--*** CATEGORY MEGA-MENU MOBILE *** -->
+<!--        <div class="gf-category-mega-menu-mobile-wrapper mega-menu-mobile-toggle">-->
+<!--            <div class="gf-category-mega-menu-mobile__header py-2 pl-2">-->
+<!--                <h5>All Cateogires</h5>-->
+<!--                <i class="fas fa-times-circle exit-megamenu-mobile"></i>-->
+<!--            </div>-->
+<!---->
+            <?php include('templates/categories-megamenu/gf-categories-mega-menu-mobile.php'); ?>
+<!--        </div>-->
 
 
-        <div class="gf-category-mega-menu-mobile__first_level mega-menu-mobile-toggle__first_level">
-            <ul>
-                <li class="">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons test">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-                <li class="test">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-                <li class="test">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-                <li class="test">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-                <li class="test">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-                <li class="test">
-                    <a href="" class="pl-2">Test 1</a>
-                    <div class="mega-menu-mobile__icons">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+
 </header>

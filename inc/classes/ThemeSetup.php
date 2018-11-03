@@ -115,8 +115,9 @@ class ThemeSetup
 
         //greenfirends styles & scripts
         wp_enqueue_style('gf-style-admin', get_stylesheet_directory_uri() . '/assets/css/admin.css', [], $version);
-
+        wp_enqueue_style('megamenu-mobile', get_stylesheet_directory_uri() . '/style.css', [], $version);
         wp_enqueue_style('gf-style', get_stylesheet_directory_uri() . '/style.css', [], $version);
+
         wp_enqueue_script('gf-front-js', get_stylesheet_directory_uri() . '/assets/js/front.js', ['jquery'], '', false);
     }
 
